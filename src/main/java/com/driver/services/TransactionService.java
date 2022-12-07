@@ -81,6 +81,8 @@ public class TransactionService {
 
     public Transaction returnBook(int cardId, int bookId) throws Exception{
 
+        //whether that book was actually issued to that card only or some other student....
+
         List<Transaction> transactions = transactionRepository5.find(cardId, bookId,TransactionStatus.SUCCESSFUL, true);
 
         Transaction transaction = transactions.get(transactions.size() - 1);
@@ -100,6 +102,10 @@ public class TransactionService {
 
         book.setAvailable(true);
         book.setCard(null);
+
+
+
+        //Remve that book from that card list
 
         bookRepository5.updateBook(book);
 

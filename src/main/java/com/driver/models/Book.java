@@ -20,7 +20,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("booksWritten")
+    @JsonIgnoreProperties("books")
     private Author author;
 
     @ManyToOne
